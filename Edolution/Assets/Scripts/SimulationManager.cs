@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
-public class SimulationManager : MonoBehaviour
+public class SimulationManager : SerializedMonoBehaviour
 {
     #region VARIABLES
     [SerializeField] private Dictionary<string, ISimulationObject> simulationObjectCollection;
