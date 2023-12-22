@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class Universe
 {
-    
+    private const float MUTATION_CHANCE = 0.05f;    
 }
