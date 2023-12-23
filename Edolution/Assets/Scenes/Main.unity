@@ -255,45 +255,38 @@ MonoBehaviour:
     SerializationNodes:
     - Name: simulationObjectCollection
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ISimulationObject,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0|System.Collections.Generic.List`1[[ISimulationObject, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
+      Data: 1|Specie01, Assembly-CSharp
+    - Name: Genome
       Entry: 1
-      Data: a
-    - Name: $v
-      Entry: 7
-      Data: 2|SimulationUnit, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
+      Data: BBBCCCCDDB
+    - Name: Code
       Entry: 1
-      Data: b
-    - Name: $v
+      Data: 8931853944
+    - Name: Position
       Entry: 7
-      Data: 3|SimulationUnit, Assembly-CSharp
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: -1.985014
+    - Name: 
+      Entry: 4
+      Data: 0.11011076
     - Name: 
       Entry: 8
       Data: 
+    - Name: Active
+      Entry: 5
+      Data: true
+    - Name: Age
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -303,6 +296,21 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: simulationHistory
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[SimulationState, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  visualizer: {fileID: 1258071313}
+  frameSkipCountSaving: 100
 --- !u!4 &658991356
 Transform:
   m_ObjectHideFlags: 0
@@ -318,9 +326,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1258071312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1258071314}
+  - component: {fileID: 1258071313}
+  m_Layer: 0
+  m_Name: Visualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1258071313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258071312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b15845836693a48b6d4c9327779568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualizeUnitPrefab: {fileID: 2520298508242729511, guid: 217adb086ec9aac4ea03022df32bfb3b, type: 3}
+--- !u!4 &1258071314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258071312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 658991356}
+  - {fileID: 1258071314}
