@@ -62,7 +62,7 @@ public class SimulationManager : SerializedMonoBehaviour
     [Button]
     public void AddRandomUnit()
     {
-        simulationObjectCollection.Add(new SimulationUnit());
+        simulationObjectCollection.Add(new Specie01());
     }
 }
 /// <summary>
@@ -137,21 +137,5 @@ public class SimulationUnit : IAlive
         Genome = Universe.GenerateRandomString(10,"ABCD");
         Position = new Vector2(Random.Range(-5f,5f),Random.Range(-5f,5f));
         Active = true;
-    }
-}
-[Serializable]
-public class Specie01 : SimulationUnit, IAlive
-{
-    VisualizationData ISimulationObject.ObjectVisualizationData { get => new VisualizationData()
-    {
-        Image = null,
-        Position = Position,
-        Rotation = new Vector3(),
-        ObjectColor = Color.blue,
-        Scale = Vector3.one
-    }; set => throw new NotImplementedException(); }
-    protected override Vector2 Movement()
-    {
-        return new Vector2(Random.Range(-0.1f,0.1f),Random.Range(-0.1f,0.1f));
     }
 }

@@ -46,4 +46,9 @@ public static class Universe
         int start = lengths.Take(index).Sum();
         return str.Substring(start, lengths[index]);
     }
+    // Convert an angle in radians to a normalized 2D vector
+    public static Vector2 AngleToNormalizedVector(float angleInRadians)
+    {
+        return new Vector2((float)Math.Cos(angleInRadians),(float)Math.Sin(angleInRadians));
+    }
 }

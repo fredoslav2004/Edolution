@@ -259,37 +259,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|Specie01, Assembly-CSharp
-    - Name: Genome
-      Entry: 1
-      Data: BBBCCCCDDB
-    - Name: Code
-      Entry: 1
-      Data: 8931853944
-    - Name: Position
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -1.985014
-    - Name: 
-      Entry: 4
-      Data: 0.11011076
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Active
-      Entry: 5
-      Data: true
-    - Name: Age
-      Entry: 3
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -298,7 +268,7 @@ MonoBehaviour:
       Data: 
     - Name: simulationHistory
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SimulationState, Assembly-CSharp]],
+      Data: 1|System.Collections.Generic.List`1[[SimulationState, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
@@ -310,7 +280,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   visualizer: {fileID: 1258071313}
-  frameSkipCountSaving: 100
+  frameSkipCountSaving: 10000
 --- !u!4 &658991356
 Transform:
   m_ObjectHideFlags: 0
