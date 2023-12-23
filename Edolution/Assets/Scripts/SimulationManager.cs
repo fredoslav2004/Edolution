@@ -19,14 +19,15 @@ public class SimulationManager : SerializedMonoBehaviour
     [SerializeField] private Visualizer visualizer;
     private long framesPassed;
     [SerializeField] private int frameSkipCountSaving;
+    [SerializeField] private bool playOnFrame = false;
     #endregion
     [Button]
-    void SimulateFrame()
+    public void SimulateFrame()
     {
         framesPassed++;
         var data = CaptureCurrentState();
         SimulateFrameForAll(data);
-        if(framesPassed%frameSkipCountSaving==0) SaveState();
+        if(frameSkipCountSaving > 0 && framesPassed%frameSkipCountSaving==0) SaveState();
         visualizer.Visualize(simulationObjectCollection.Where(x => x.Active).Select(x => x.ObjectVisualizationData).ToArray());
     }
     private ISimulationObject[] CaptureCurrentState()
@@ -38,7 +39,7 @@ public class SimulationManager : SerializedMonoBehaviour
         }
         return result.ToArray();
     }
-    private void SaveState()
+    public void SaveState()
     {
         simulationHistory.Add(new SimulationState()
         {
@@ -48,7 +49,7 @@ public class SimulationManager : SerializedMonoBehaviour
     }
     private void Update() 
     {
-        SimulateFrame();
+        if(playOnFrame) SimulateFrame();
     }
     private void SimulateFrameForAll(ISimulationObject[] data)
     {
@@ -63,6 +64,14 @@ public class SimulationManager : SerializedMonoBehaviour
     public void AddRandomUnit()
     {
         simulationObjectCollection.Add(new Specie01());
+    }
+    public void Run()
+    {
+        playOnFrame = true;
+    }
+    public void Stop()
+    {
+        playOnFrame = false;
     }
 }
 /// <summary>

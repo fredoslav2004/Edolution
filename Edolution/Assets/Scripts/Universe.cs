@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -47,8 +48,8 @@ public static class Universe
         return str.Substring(start, lengths[index]);
     }
     // Convert an angle in radians to a normalized 2D vector
-    public static Vector2 AngleToNormalizedVector(float angleInRadians)
+    public static Vector2 AngleToNormalizedVector(float angleInDegrees)
     {
-        return new Vector2((float)Math.Cos(angleInRadians),(float)Math.Sin(angleInRadians));
+        return new Vector2((float)Math.Cos(math.radians(angleInDegrees)),(float)Math.Sin(math.radians(angleInDegrees)));
     }
 }
