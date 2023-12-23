@@ -3,6 +3,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public float zoomSensitivity = 15f;
+    private float getCurrentZoomSensitivity => targetCamera.orthographicSize * zoomSensitivity;
     public float minZoom = 5f;
     public float maxZoom = 20f;
     [SerializeField] private Camera targetCamera;
@@ -13,7 +14,7 @@ public class CameraManager : MonoBehaviour
         if (scroll != 0f)
         {
             // Calculate zoom and clamp it
-            float newSize = Mathf.Clamp(targetCamera.orthographicSize - scroll * zoomSensitivity, minZoom, maxZoom);
+            float newSize = Mathf.Clamp(targetCamera.orthographicSize - scroll * getCurrentZoomSensitivity, minZoom, maxZoom);
             
             // Calculate position offset to keep the mouse position steady
             Vector3 mouseWorldPos = targetCamera.ScreenToWorldPoint(Input.mousePosition);
