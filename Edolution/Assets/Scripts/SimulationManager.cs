@@ -28,6 +28,10 @@ public class SimulationManager : SerializedMonoBehaviour
         var data = CaptureCurrentState();
         SimulateFrameForAll(data);
         if(frameSkipCountSaving > 0 && framesPassed%frameSkipCountSaving==0) SaveState();
+        VisualizeCurrent();
+    }
+    private void VisualizeCurrent()
+    {
         visualizer.Visualize(simulationObjectCollection.Where(x => x.Active).Select(x => x.ObjectVisualizationData).ToArray());
     }
     private ISimulationObject[] CaptureCurrentState()
@@ -64,6 +68,7 @@ public class SimulationManager : SerializedMonoBehaviour
     public void AddRandomUnit()
     {
         simulationObjectCollection.Add(new Specie01());
+        VisualizeCurrent();
     }
     public void Run()
     {

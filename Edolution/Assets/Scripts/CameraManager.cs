@@ -14,17 +14,20 @@ public class CameraManager : MonoBehaviour
         {
             // Calculate zoom and clamp it
             float newSize = Mathf.Clamp(targetCamera.orthographicSize - scroll * zoomSensitivity, minZoom, maxZoom);
-            Vector3 mouseWorldPos = targetCamera.ScreenToWorldPoint(Input.mousePosition) * 2;
-
-            // Calculate position offset based on zoom level change
-            Vector3 direction = (targetCamera.transform.position + mouseWorldPos).normalized;
+            
+            // Calculate position offset to keep the mouse position steady
+            Vector3 mouseWorldPos = targetCamera.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = (targetCamera.transform.position - mouseWorldPos).normalized;
             float zoomDelta = targetCamera.orthographicSize - newSize;
-            Vector3 newPosition = targetCamera.transform.position + direction * zoomDelta;
+            Vector3 newPosition = targetCamera.transform.position - direction * zoomDelta;
 
             // Apply new zoom and position
             targetCamera.orthographicSize = newSize;
-            targetCamera.transform.position = new Vector3(newPosition.x,newPosition.y,targetCamera.transform.position.z);
+            targetCamera.transform.position = new Vector3(newPosition.x, newPosition.y, targetCamera.transform.position.z);
         }
-        targetCamera.transform.position += new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * targetCamera.orthographicSize / 30;
+
+        // Camera movement
+        targetCamera.transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * targetCamera.orthographicSize / 30;
     }
+
 }

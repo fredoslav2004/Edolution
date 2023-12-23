@@ -10,7 +10,7 @@ public class Specie01 : SimulationUnit, IAlive
 {
     VisualizationData ISimulationObject.ObjectVisualizationData { get => new VisualizationData()
     {
-        Image = Database.GetImage("Specie01"),
+        Image = Database.GetImage("Cell02"),
         Position = Position,
         Rotation = new Vector3(0,0,directionAngle),
         ObjectColor = Color.white,
@@ -19,7 +19,7 @@ public class Specie01 : SimulationUnit, IAlive
     private float directionAngle = Random.Range(0,360f);
     protected override Vector2 Movement()
     {
-        if(Age%10==0) directionAngle += Random.Range(-30f,30f);
+        directionAngle += Random.Range(-1f,1f) * ((Age%10==0)?10:1);
         return Universe.AngleToNormalizedVector(directionAngle) * 0.01f;
     }
 }
