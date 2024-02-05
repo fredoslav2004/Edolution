@@ -28,9 +28,8 @@ public class SimulationManager : SerializedMonoBehaviour
         var data = CaptureCurrentState();
         SimulateFrameForAll(data);
         if(frameSkipCountSaving > 0 && framesPassed%frameSkipCountSaving==0) SaveState();
-        VisualizeCurrent();
     }
-    private void VisualizeCurrent()
+    public void VisualizeCurrent()
     {
         visualizer.Visualize(simulationObjectCollection.Where(x => x.Active).Select(x => x.ObjectVisualizationData).ToArray());
     }
@@ -53,7 +52,11 @@ public class SimulationManager : SerializedMonoBehaviour
     }
     private void Update() 
     {
-        if(playOnFrame) SimulateFrame();
+        if(playOnFrame) 
+        {
+            SimulateFrame();
+            VisualizeCurrent();
+        }
     }
     private void SimulateFrameForAll(ISimulationObject[] data)
     {

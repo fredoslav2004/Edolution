@@ -20,8 +20,8 @@ public class Specie02 : SimulationUnit, IAlive
     private float directionAngle = Random.Range(0,360f);
     protected override Vector2 Movement()
     {
-        directionAngle += Random.Range(expressedGenome[1],expressedGenome[1]) * ((Age%10==0)?10:1);
-        return Universe.AngleToNormalizedVector(directionAngle) * expressedGenome[2] * expressedGenome[1];
+        directionAngle += Random.Range(-expressedGenome[1],expressedGenome[1]) * ((Age%10==0)?10:1);
+        return Universe.AngleToNormalizedVector(directionAngle) * expressedGenome[2] * expressedGenome[1] / 10;
     }
     public Specie02()
     {
