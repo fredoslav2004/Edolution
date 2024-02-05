@@ -6,6 +6,7 @@ public class CameraManager : MonoBehaviour
     private float getCurrentZoomSensitivity => targetCamera.orthographicSize * zoomSensitivity;
     public float minZoom = 5f;
     public float maxZoom = 20f;
+    [SerializeField] private float moveSpeed;
     [SerializeField] private Camera targetCamera;
 
     private void Update()
@@ -28,7 +29,7 @@ public class CameraManager : MonoBehaviour
         }
 
         // Camera movement
-        targetCamera.transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * targetCamera.orthographicSize / 30;
+        targetCamera.transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * targetCamera.orthographicSize / 30 * Time.deltaTime * moveSpeed;
     }
 
 }

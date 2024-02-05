@@ -67,7 +67,7 @@ public class SimulationManager : SerializedMonoBehaviour
     [Button]
     public void AddRandomUnit()
     {
-        simulationObjectCollection.Add(new Specie01());
+        simulationObjectCollection.Add(new Specie02());
         VisualizeCurrent();
     }
     public void Run()
@@ -136,7 +136,7 @@ public class SimulationUnit : IAlive
             Active = Active,            
         };
     }
-    public void SimulateFrame(ISimulationObject[] simulationObjects)
+    public virtual void SimulateFrame(ISimulationObject[] simulationObjects)
     {
         Age++;
         Position += Movement();
@@ -152,4 +152,5 @@ public class SimulationUnit : IAlive
         Position = new Vector2(Random.Range(-5f,5f),Random.Range(-5f,5f));
         Active = true;
     }
+    public virtual void Initialize() {  }
 }

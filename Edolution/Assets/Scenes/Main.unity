@@ -377,6 +377,7 @@ MonoBehaviour:
   zoomSensitivity: 1
   minZoom: 0.02
   maxZoom: 35
+  moveSpeed: 100
   targetCamera: {fileID: 519420031}
 --- !u!1001 &570343346
 PrefabInstance:
@@ -709,7 +710,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Cell3
+      Data: Cell03
     - Name: $v
       Entry: 10
       Data: 2
@@ -721,7 +722,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Cell4
+      Data: Cell04
     - Name: $v
       Entry: 10
       Data: 3
@@ -733,7 +734,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Cell5
+      Data: Cell05
     - Name: $v
       Entry: 10
       Data: 4
